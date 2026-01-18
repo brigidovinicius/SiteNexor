@@ -2,11 +2,51 @@
 import { siteConfig } from '../lib/site/config';
 ---
 
-<footer class="bg-gray-800 text-white py-8">
+<footer class="bg-zinc-900 text-zinc-300 py-16">
   <div class="container mx-auto px-4">
-    <div class="text-center" data-reveal="fade-up">
-      <p>&copy; {new Date().getFullYear()} {siteConfig.siteName}. Todos os direitos reservados.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <!-- Contato -->
+      <div data-reveal="fade-up">
+        <h3 class="text-white font-bold text-lg mb-4">Contato</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href={`mailto:${siteConfig.email}`} class="hover:text-white transition-colors">
+              {siteConfig.email}
+            </a>
+          </li>
+          <li>
+            <a href={siteConfig.whatsapp} class="hover:text-white transition-colors">
+              WhatsApp (em breve)
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Áreas de Atuação -->
+      <div data-reveal="fade-up" data-reveal-delay="100">
+        <h3 class="text-white font-bold text-lg mb-4">Áreas de Atuação</h3>
+        <ul class="space-y-2">
+          <li>Regional</li>
+          <li>Nacional</li>
+        </ul>
+      </div>
+      
+      <!-- Links Rápidos -->
+      <div data-reveal="fade-up" data-reveal-delay="200">
+        <h3 class="text-white font-bold text-lg mb-4">Links Rápidos</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="/quem-somos" class="hover:text-white transition-colors">Quem Somos</a></li>
+          <li><a href="/seguranca-e-qualidade" class="hover:text-white transition-colors">Segurança e Qualidade</a></li>
+          <li><a href="/contato" class="hover:text-white transition-colors">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-zinc-800 pt-8 text-center" data-reveal="fade-up">
+      <p class="text-zinc-500">
+        &copy; {new Date().getFullYear()} {siteConfig.siteName}. Todos os direitos reservados.
+      </p>
     </div>
   </div>
 </footer>
-
