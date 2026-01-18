@@ -1,0 +1,66 @@
+---
+
+---
+
+<div class="projects-slider" data-reveal="fade-up">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="p-6 bg-gray-100 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">Projeto 1</h3>
+          <p>Descrição do projeto 1</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="p-6 bg-gray-100 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">Projeto 2</h3>
+          <p>Descrição do projeto 2</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="p-6 bg-gray-100 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">Projeto 3</h3>
+          <p>Descrição do projeto 3</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<style>
+  .projects-slider {
+    padding: 2rem 0;
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectsSlider = document.querySelector('.projects-slider .swiper');
+    if (projectsSlider) {
+      new Swiper(projectsSlider, {
+        modules: [Navigation, Pagination],
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    }
+  });
+</script>
+

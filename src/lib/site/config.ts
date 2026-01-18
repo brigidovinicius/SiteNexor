@@ -1,0 +1,6 @@
+export const siteConfig = {
+  siteName: 'Site Nexor',
+  baseUrl: 'https://example.com', // TODO: atualizar com URL real
+  googleFormUrl: 'https://forms.gle/example', // TODO: atualizar com URL do formulário
+};
+

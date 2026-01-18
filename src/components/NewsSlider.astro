@@ -1,0 +1,66 @@
+---
+
+---
+
+<div class="news-slider" data-reveal="fade-up">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="p-6 bg-white border rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">Notícia 1</h3>
+          <p class="text-gray-600 mb-2">Data: Janeiro 2024</p>
+          <p>Conteúdo da notícia 1</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="p-6 bg-white border rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">Notícia 2</h3>
+          <p class="text-gray-600 mb-2">Data: Fevereiro 2024</p>
+          <p>Conteúdo da notícia 2</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="p-6 bg-white border rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">Notícia 3</h3>
+          <p class="text-gray-600 mb-2">Data: Março 2024</p>
+          <p>Conteúdo da notícia 3</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<style>
+  .news-slider {
+    padding: 2rem 0;
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const newsSlider = document.querySelector('.news-slider .swiper');
+    if (newsSlider) {
+      new Swiper(newsSlider, {
+        modules: [Navigation, Pagination],
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+        },
+      });
+    }
+  });
+</script>
+

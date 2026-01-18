@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout title="Serviços" description="Conheça nossos serviços">
+  <Section>
+    <div class="container mx-auto px-4 py-16">
+      <h1 class="text-4xl font-bold mb-8" data-reveal="fade-up">Serviços</h1>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-100 rounded-lg" data-reveal="fade-up" data-reveal-delay="100">
+          <h3 class="text-xl font-semibold mb-2">Serviço 1</h3>
+          <p>Descrição do serviço 1</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-lg" data-reveal="fade-up" data-reveal-delay="200">
+          <h3 class="text-xl font-semibold mb-2">Serviço 2</h3>
+          <p>Descrição do serviço 2</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-lg" data-reveal="fade-up" data-reveal-delay="300">
+          <h3 class="text-xl font-semibold mb-2">Serviço 3</h3>
+          <p>Descrição do serviço 3</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
