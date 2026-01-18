@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  buttonText: string;
+  buttonHref: string;
+}
+
+const { title, description, buttonText, buttonHref } = Astro.props;
+---
+
+<section class="py-20 bg-zinc-50">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-4" data-reveal="fade-up">
+      {title}
+    </h2>
+    {description && (
+      <p class="text-lg text-zinc-600 mb-8 max-w-2xl mx-auto" data-reveal="fade-up" data-reveal-delay="100">
+        {description}
+      </p>
+    )}
+    <a href={buttonHref} class="inline-block bg-brand-700 text-white px-8 py-4 rounded-lg hover:bg-brand-800 transition-colors font-medium text-lg" data-reveal="fade-up" data-reveal-delay="200">
+      {buttonText}
+    </a>
+  </div>
+</section>
+

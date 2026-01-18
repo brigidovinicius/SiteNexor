@@ -1,0 +1,28 @@
+---
+import { siteConfig } from '../lib/site/config';
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+  <!-- Email -->
+  <div class="p-6 border border-zinc-200 rounded-lg" data-reveal="fade-up">
+    <h3 class="font-bold text-zinc-900 mb-2">Email</h3>
+    <a href={`mailto:${siteConfig.email}`} class="text-brand-700 hover:text-brand-800 transition-colors">
+      {siteConfig.email}
+    </a>
+  </div>
+  
+  <!-- WhatsApp -->
+  <div class="p-6 border border-zinc-200 rounded-lg" data-reveal="fade-up" data-reveal-delay="100">
+    <h3 class="font-bold text-zinc-900 mb-2">WhatsApp</h3>
+    <a href={siteConfig.whatsapp} class="text-brand-700 hover:text-brand-800 transition-colors">
+      Corporativo (em breve)
+    </a>
+  </div>
+  
+  <!-- Atuação -->
+  <div class="p-6 border border-zinc-200 rounded-lg" data-reveal="fade-up" data-reveal-delay="200">
+    <h3 class="font-bold text-zinc-900 mb-2">Atuação</h3>
+    <p class="text-zinc-700">Regional e Nacional</p>
+  </div>
+</div>
+

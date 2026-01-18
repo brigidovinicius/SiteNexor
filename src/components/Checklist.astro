@@ -1,0 +1,19 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="space-y-4">
+  {items.map((item) => (
+    <li class="flex items-start gap-3" data-reveal="fade-up">
+      <svg class="w-6 h-6 text-brand-700 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+      <span class="text-zinc-700 text-lg leading-relaxed">{item}</span>
+    </li>
+  ))}
+</ul>
+
