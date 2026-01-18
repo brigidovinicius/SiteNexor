@@ -3,9 +3,13 @@ import { siteConfig } from '../lib/site/config';
 
 const pages = [
   '',
-  '/sobre',
-  '/servicos',
-  '/projetos',
+  '/quem-somos',
+  '/solucoes',
+  '/solucoes/chave-na-mao',
+  '/solucoes/obras-civis-industriais',
+  '/solucoes/infraestrutura-adequacoes',
+  '/solucoes/manutencao-civil-industrial',
+  '/seguranca-e-qualidade',
   '/contato',
 ];
 
@@ -29,4 +33,3 @@ ${pages
     },
   });
 };
-
