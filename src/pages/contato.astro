@@ -1,20 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
-import CTA from '../components/CTA.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactCards from '../components/ContactCards.astro';
+import { siteConfig } from '../lib/site/config';
 ---
 
-<BaseLayout title="Contato" description="Entre em contato conosco">
-  <Section>
-    <div class="container mx-auto px-4 py-16">
-      <h1 class="text-4xl font-bold mb-8" data-reveal="fade-up">Contato</h1>
-      <div class="max-w-2xl" data-reveal="fade-up" data-reveal-delay="100">
-        <p class="text-lg mb-8">
-          Entre em contato conosco através do formulário abaixo.
-        </p>
-        <CTA />
+<BaseLayout 
+  title="Contato"
+  description="Entre em contato com a NEXOR Industrial para discutir seu projeto, obra ou necessidade de execução civil industrial."
+>
+  <PageHeader
+    title="Contato"
+    description="Entre em contato com a NEXOR Industrial para discutir seu projeto, obra ou necessidade de execução civil industrial."
+  />
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <ContactCards />
+        
+        <!-- Google Forms Embed -->
+        <div class="mt-12" data-reveal="fade-up">
+          <h2 class="text-3xl font-bold text-zinc-900 mb-6">Solicitar contato</h2>
+          {siteConfig.googleFormUrl && siteConfig.googleFormUrl !== 'https://forms.gle/example' ? (
+            <div class="border border-zinc-200 rounded-lg overflow-hidden">
+              <iframe
+                src={siteConfig.googleFormUrl + '/viewform?embedded=true'}
+                width="100%"
+                height="800"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                class="w-full min-h-[800px]"
+                title="Formulário de contato"
+              >
+                Carregando…
+              </iframe>
+            </div>
+          ) : (
+            <div class="p-12 border-2 border-dashed border-zinc-300 rounded-lg text-center bg-zinc-50">
+              <p class="text-zinc-600 mb-6">
+                O formulário de contato será exibido aqui quando a URL do Google Forms for configurada.
+              </p>
+              <a
+                href={siteConfig.googleFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-brand-700 text-white px-8 py-3 rounded-lg hover:bg-brand-800 transition-colors font-medium"
+              >
+                Abrir formulário
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </div>
-  </Section>
+  </section>
 </BaseLayout>
-

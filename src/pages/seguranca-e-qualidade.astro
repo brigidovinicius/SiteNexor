@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Checklist from '../components/Checklist.astro';
+import QuoteBand from '../components/QuoteBand.astro';
+---
+
+<BaseLayout 
+  title="Segurança e Qualidade"
+  description="Segurança e qualidade são requisitos básicos em todas as operações da NEXOR Industrial. Cultura de segurança, planejamento e controle rigoroso."
+>
+  <PageHeader
+    title="Segurança e Qualidade"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-8 text-lg text-zinc-700 leading-relaxed">
+        <p data-reveal="fade-up">
+          Na NEXOR Industrial, segurança e qualidade não são diferenciais competitivos: são requisitos básicos e fundamentais em todas as nossas operações.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="100">
+          Mantemos uma cultura de segurança enraizada em todas as etapas dos projetos, desde o planejamento até a execução, garantindo que todas as atividades sejam realizadas de forma segura e dentro dos mais rigorosos padrões.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="200">
+          Nossos processos de controle de qualidade abrangem todas as etapas da obra, desde a recepção de materiais até a verificação final, garantindo que cada projeto atenda ou supere as especificações técnicas e normativas aplicáveis.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="300">
+          Trabalhamos com conformidade técnica e normativa, assegurando que todas as obras estejam em total conformidade com as regulamentações vigentes, incluindo normas de segurança do trabalho, códigos de obras e requisitos específicos de cada setor industrial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12" data-reveal="fade-up">
+          Nossos pilares
+        </h2>
+        <Checklist
+          items={[
+            "Cultura de segurança no canteiro",
+            "Planejamento de atividades críticas",
+            "Controle de qualidade em todas as etapas",
+            "Conformidade técnica e normativa"
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <QuoteBand quote="Segurança não é diferencial. É requisito básico." />
+</BaseLayout>
+

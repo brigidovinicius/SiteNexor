@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Checklist from '../../components/Checklist.astro';
+import CTASection from '../../components/CTASection.astro';
+---
+
+<BaseLayout 
+  title="Manutenção Civil Industrial"
+  description="Manutenção civil industrial preventiva e corretiva, paradas programadas, adequações normativas e suporte técnico contínuo."
+>
+  <PageHeader
+    title="Manutenção Civil Industrial"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-8 text-lg text-zinc-700 leading-relaxed">
+        <p data-reveal="fade-up">
+          Oferecemos serviços de manutenção civil industrial para garantir que as instalações permaneçam em condições operacionais adequadas, prolongando a vida útil das estruturas e evitando interrupções na produção.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="100">
+          Nossa atuação abrange manutenção preventiva programada, correções emergenciais, adequações para conformidade normativa e suporte técnico contínuo, sempre com agilidade e eficiência.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="200">
+          Trabalhamos em paradas programadas, coordenando todas as atividades de manutenção civil para otimizar o tempo de parada e garantir que as instalações retornem à operação em condições ideais.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="300">
+          Mantemos uma equipe técnica especializada pronta para atender demandas de manutenção corretiva, garantindo respostas rápidas e soluções eficazes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12" data-reveal="fade-up">
+          Serviços
+        </h2>
+        <Checklist
+          items={[
+            "Manutenção civil industrial preventiva e corretiva",
+            "Paradas programadas",
+            "Adequações normativas",
+            "Suporte técnico contínuo"
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Solicite um contato"
+    description="Entre em contato para discutir suas necessidades de manutenção civil industrial."
+    buttonText="Solicitar contato"
+    buttonHref="/contato"
+  />
+</BaseLayout>
+

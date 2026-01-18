@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Checklist from '../../components/Checklist.astro';
+import CTASection from '../../components/CTASection.astro';
+---
+
+<BaseLayout 
+  title="Obras Civis Industriais"
+  description="Execução de obras civis industriais: galpões, bases de máquinas, pisos industriais, casas de máquinas e infraestrutura de apoio."
+>
+  <PageHeader
+    title="Obras Civis Industriais"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-8 text-lg text-zinc-700 leading-relaxed">
+        <p data-reveal="fade-up">
+          Executamos obras civis industriais com foco em funcionalidade, durabilidade e conformidade técnica, atendendo às especificações rigorosas de ambientes produtivos.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="100">
+          Nossa experiência abrange desde estruturas metálicas e pré-moldadas até fundações especiais e sistemas construtivos adaptados às necessidades específicas de cada operação industrial.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="200">
+          Trabalhamos com planejamento detalhado e controle rigoroso, garantindo que as obras civis atendam aos requisitos de carga, vibração, nívelação e outras especificações técnicas críticas para o funcionamento adequado dos equipamentos e processos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12" data-reveal="fade-up">
+          Atividades
+        </h2>
+        <Checklist
+          items={[
+            "Galpões industriais",
+            "Bases de máquinas e equipamentos",
+            "Pisos industriais",
+            "Casas de máquinas e áreas técnicas",
+            "Infraestrutura industrial de apoio"
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Solicite um contato"
+    description="Entre em contato para discutir sua necessidade de obra civil industrial."
+    buttonText="Solicitar contato"
+    buttonHref="/contato"
+  />
+</BaseLayout>
+

@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout 
+  title="Quem Somos"
+  description="A NEXOR Industrial é especializada em execução civil industrial, atuando como parceira técnica de indústrias que exigem alto padrão de engenharia e organização de obra."
+>
+  <PageHeader
+    title="Quem Somos"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-8 text-lg text-zinc-700 leading-relaxed">
+        <p data-reveal="fade-up">
+          A NEXOR Industrial é uma empresa especializada em execução civil industrial, atuando como parceira técnica de indústrias que exigem alto padrão de engenharia, organização de obra e previsibilidade de entrega.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="100">
+          Assumimos a gestão completa do projeto, reduzindo riscos, interfaces e retrabalhos, com um único responsável por toda a execução.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="200">
+          Nossa experiência abrange obras civis industriais, infraestrutura, adequações e manutenção, sempre com foco em segurança, qualidade e respeito aos prazos estabelecidos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missão, Visão, Valores -->
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        <!-- Missão -->
+        <div data-reveal="fade-up">
+          <h3 class="text-2xl font-bold text-zinc-900 mb-4">Missão</h3>
+          <p class="text-zinc-700 leading-relaxed">
+            Entregar soluções civis industriais com excelência técnica, garantindo segurança, qualidade e previsibilidade para nossos clientes.
+          </p>
+        </div>
+        
+        <!-- Visão -->
+        <div data-reveal="fade-up" data-reveal-delay="100">
+          <h3 class="text-2xl font-bold text-zinc-900 mb-4">Visão</h3>
+          <p class="text-zinc-700 leading-relaxed">
+            Ser referência em execução civil industrial, reconhecida pela confiabilidade, inovação e compromisso com resultados.
+          </p>
+        </div>
+        
+        <!-- Valores -->
+        <div data-reveal="fade-up" data-reveal-delay="200">
+          <h3 class="text-2xl font-bold text-zinc-900 mb-4">Valores</h3>
+          <ul class="space-y-2 text-zinc-700 leading-relaxed">
+            <li>• Segurança em primeiro lugar</li>
+            <li>• Compromisso com a engenharia</li>
+            <li>• Ética e transparência</li>
+            <li>• Foco em resultado</li>
+            <li>• Responsabilidade técnica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

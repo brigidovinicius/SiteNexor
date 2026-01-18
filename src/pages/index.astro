@@ -1,20 +1,124 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Stats from '../components/Stats.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Checklist from '../components/Checklist.astro';
+import CTASection from '../components/CTASection.astro';
+import QuoteBand from '../components/QuoteBand.astro';
 ---
 
-<BaseLayout title="Início">
-  <Hero />
-  <Section>
-    <div class="container mx-auto px-4 py-16">
-      <h2 class="text-3xl font-bold mb-8" data-reveal="fade-up">Bem-vindo ao Site Nexor</h2>
-      <p class="text-lg mb-4" data-reveal="fade-up" data-reveal-delay="100">
-        Este é um site institucional moderno e animado, construído com Astro, TailwindCSS, GSAP e Swiper.
-      </p>
-    </div>
-  </Section>
-  <Stats />
-</BaseLayout>
+<BaseLayout 
+  title="Início"
+  description="Execução civil industrial com responsabilidade total, do planejamento à entrega. Soluções técnicas completas para ambientes de alta exigência operacional."
+>
+  <PageHeader
+    title="NEXOR Industrial"
+    lead="Execução civil industrial com responsabilidade total, do planejamento à entrega."
+    description="Atuamos em obras civis industriais no modelo chave na mão, entregando soluções técnicas completas para ambientes de alta exigência operacional, com foco em segurança, prazo e qualidade."
+  />
 
+  <!-- Quem Somos (Resumo) -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto" data-reveal="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-6">Quem Somos</h2>
+        <div class="space-y-4 text-lg text-zinc-700 leading-relaxed">
+          <p>
+            A NEXOR Industrial é uma empresa especializada em execução civil industrial, atuando como parceira técnica de indústrias que exigem alto padrão de engenharia, organização de obra e previsibilidade de entrega.
+          </p>
+          <p>
+            Assumimos a gestão completa do projeto, reduzindo riscos, interfaces e retrabalhos, com um único responsável por toda a execução.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nossas Soluções -->
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12 text-center" data-reveal="fade-up">
+        Soluções civis para operações industriais críticas
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto" data-reveal-stagger>
+        <ServiceCard
+          title="Execução civil industrial chave na mão"
+          href="/solucoes/chave-na-mao"
+        />
+        <ServiceCard
+          title="Obras civis e infraestrutura industrial"
+          href="/solucoes/obras-civis-industriais"
+        />
+        <ServiceCard
+          title="Ampliações e adequações industriais"
+          href="/solucoes/infraestrutura-adequacoes"
+        />
+        <ServiceCard
+          title="Manutenção civil industrial"
+          href="/solucoes/manutencao-civil-industrial"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12" data-reveal="fade-up">
+          Diferenciais
+        </h2>
+        <Checklist
+          items={[
+            "Gestão técnica integrada",
+            "Planejamento detalhado antes da execução",
+            "Forte cultura de segurança",
+            "Controle rigoroso de prazos e custos",
+            "Comunicação clara com o cliente",
+            "Padrão executivo industrial"
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Slogan -->
+  <QuoteBand quote="Excelência que move a indústria" />
+
+  <!-- Segurança -->
+  <QuoteBand 
+    quote="Segurança não é diferencial. É requisito básico." 
+    href="/seguranca-e-qualidade"
+  />
+
+  <!-- Projetos Slider (Placeholder) -->
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12 text-center" data-reveal="fade-up">
+        Projetos
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" data-reveal-stagger>
+        {[1, 2, 3, 4, 5].map((i) => (
+          <div class="border border-zinc-200 rounded-lg overflow-hidden bg-white" data-reveal="fade-up">
+            <div class="h-64 bg-zinc-200 flex items-center justify-center">
+              <p class="text-zinc-500">Imagem placeholder</p>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-zinc-900 mb-2">Projeto Industrial</h3>
+              <p class="text-zinc-600 text-sm mb-1">Local: —</p>
+              <p class="text-zinc-600 text-sm">Categoria: Obra civil</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Principal -->
+  <CTASection
+    title="Fale com a NEXOR Industrial"
+    description="Entre em contato para discutir seu projeto ou necessidade de execução civil industrial."
+    buttonText="Solicitar contato"
+    buttonHref="/contato"
+  />
+</BaseLayout>

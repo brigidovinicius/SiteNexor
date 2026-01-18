@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Checklist from '../../components/Checklist.astro';
+import CTASection from '../../components/CTASection.astro';
+---
+
+<BaseLayout 
+  title="Infraestrutura e Adequações Industriais"
+  description="Ampliações, adequações civis para novos processos, retrofit de estruturas existentes e obras em áreas operacionais ativas."
+>
+  <PageHeader
+    title="Infraestrutura e Adequações Industriais"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-8 text-lg text-zinc-700 leading-relaxed">
+        <p data-reveal="fade-up">
+          Atuamos na ampliação e adequação de infraestruturas industriais existentes, permitindo que empresas expandam suas operações ou adaptem suas instalações a novos processos sem interromper a produção.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="100">
+          Nossas soluções incluem adequações civis para novos equipamentos, retrofit de estruturas para atender novas normas ou requisitos técnicos, e obras executadas em áreas operacionais, sempre com foco em segurança e mínima interferência nas operações em andamento.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="200">
+          Trabalhamos com planejamento detalhado que considera as restrições operacionais, garantindo que as adequações sejam implementadas de forma segura e eficiente, minimizando impactos na produção.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12" data-reveal="fade-up">
+          Atuação
+        </h2>
+        <Checklist
+          items={[
+            "Ampliação de áreas produtivas",
+            "Adequações civis para novos processos",
+            "Retrofit de estruturas existentes",
+            "Obras em áreas operacionais ativas"
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Solicite um contato"
+    description="Entre em contato para discutir sua necessidade de ampliação ou adequação industrial."
+    buttonText="Solicitar contato"
+    buttonHref="/contato"
+  />
+</BaseLayout>
+

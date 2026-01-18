@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Checklist from '../../components/Checklist.astro';
+import CTASection from '../../components/CTASection.astro';
+---
+
+<BaseLayout 
+  title="Execução Civil Industrial – Chave na Mão"
+  description="Execução civil industrial chave na mão com gestão completa do projeto, do planejamento à entrega final pronta para operação."
+>
+  <PageHeader
+    title="Execução Civil Industrial – Chave na Mão"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-8 text-lg text-zinc-700 leading-relaxed">
+        <p data-reveal="fade-up">
+          A execução civil industrial no modelo chave na mão oferece ao cliente a garantia de uma única responsabilidade técnica por todo o projeto, desde o planejamento até a entrega final.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="100">
+          A NEXOR Industrial atua como parceira técnica integral, assumindo a gestão completa da obra, incluindo planejamento detalhado, engenharia executiva, coordenação de fornecedores, controle de prazos e custos, e garantia de qualidade em todas as etapas.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="200">
+          Este modelo reduz significativamente os riscos do cliente, elimina interfaces complexas entre múltiplos fornecedores e garante maior previsibilidade no cronograma e no orçamento.
+        </p>
+        <p data-reveal="fade-up" data-reveal-delay="300">
+          Entregamos obras prontas para operação, com todas as documentações técnicas e conformidades normativas atendidas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-zinc-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12" data-reveal="fade-up">
+          Escopo de atuação
+        </h2>
+        <Checklist
+          items={[
+            "Planejamento e engenharia executiva",
+            "Gestão completa da obra",
+            "Fornecimento de mão de obra e materiais",
+            "Coordenação de fornecedores",
+            "Controle de prazos, custos e qualidade",
+            "Entrega final pronta para operação"
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Solicite um contato"
+    description="Entre em contato para discutir seu projeto chave na mão."
+    buttonText="Solicitar contato"
+    buttonHref="/contato"
+  />
+</BaseLayout>
+
