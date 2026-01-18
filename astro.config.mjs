@@ -5,6 +5,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
-  site: 'https://example.com',
+  site: 'https://example.com', // TODO: atualizar com URL real
 });
 
