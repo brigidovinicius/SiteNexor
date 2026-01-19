@@ -1,0 +1,30 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  class?: string;
+  centered?: boolean;
+}
+
+const { eyebrow, title, lead, class: className = '', centered = false } = Astro.props;
+const alignment = centered ? 'text-center mx-auto' : '';
+const maxWidth = 'max-w-3xl';
+---
+
+<header class={`mb-16 lg:mb-20 ${maxWidth} ${alignment} ${className}`}>
+  {eyebrow && (
+    <p class="eyebrow text-text-muted mb-4 font-medium tracking-wider" data-reveal="fade-up">
+      {eyebrow}
+    </p>
+  )}
+  <h2 class="text-brand mb-6 tracking-[-0.04em] leading-[1.15]" data-reveal="fade-up">
+    {title}
+  </h2>
+  {lead && (
+    <p class="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-[1.6] tracking-[-0.01em]" data-reveal="fade-up">
+      {lead}
+    </p>
+  )}
+</header>
+

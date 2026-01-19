@@ -1,16 +1,235 @@
 ---
+interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  videoSrc?: string;
+  videoPoster?: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
 
+const { 
+  title, 
+  subtitle, 
+  description, 
+  videoSrc = '/videos/hero-video.mov',
+  videoPoster,
+  ctaText = 'Solicitar Orçamento',
+  ctaHref = '/contato'
+} = Astro.props;
 ---
 
-<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-32">
-  <div class="container mx-auto px-4 text-center">
-    <h1 class="text-5xl md:text-6xl font-bold mb-6" data-reveal="fade-up">Bem-vindo ao Site Nexor</h1>
-    <p class="text-xl mb-8" data-reveal="fade-up" data-reveal-delay="100">
-      Criando experiências digitais excepcionais
-    </p>
-    <a href="/contato" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 inline-block" data-reveal="fade-up" data-reveal-delay="200">
-      Entre em Contato
-    </a>
+<section class="relative h-screen min-h-[600px] max-h-[900px] flex items-center justify-center overflow-hidden bg-black">
+  <!-- Video Background -->
+  <video 
+    id="hero-video"
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    preload="auto"
+    webkit-playsinline="true"
+    x-webkit-airplay="allow"
+    class="absolute inset-0 w-full h-full object-contain"
+    poster={videoPoster}
+    aria-label="Video de fundo"
+    style="z-index: 0; width: 100%; height: 100%; object-fit: contain; display: block;"
+    controls={false}
+  >
+    <source src={videoSrc} type="video/quicktime" />
+    <source src={videoSrc} type="video/mp4" />
+    <source src="/videos/hero-video.mov" type="video/quicktime" />
+    <source src="/videos/hero-video.mov" type="video/mp4" />
+    Seu navegador não suporta vídeos HTML5.
+  </video>
+  
+  <!-- Overlay escuro para legibilidade (ajustável) -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50 z-[1]"></div>
+  
+  <!-- Conteúdo -->
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-[10] text-center">
+    <div class="max-w-4xl mx-auto">
+      {subtitle && (
+        <p class="eyebrow text-white/90 mb-4 font-medium tracking-wider" data-reveal="fade-up">
+          {subtitle}
+        </p>
+      )}
+      <h1 class="font-bold text-white tracking-[-0.05em] mb-6 leading-[1.1] text-4xl md:text-5xl lg:text-6xl xl:text-7xl" data-reveal="fade-up" data-reveal-delay="100">
+        {title}
+      </h1>
+      {description && (
+        <p class="text-lg md:text-xl lg:text-2xl text-white/95 mb-10 max-w-2xl mx-auto leading-[1.6] font-normal tracking-[-0.01em]" data-reveal="fade-up" data-reveal-delay="200">
+          {description}
+        </p>
+      )}
+      <div data-reveal="fade-up" data-reveal-delay="300">
+        <a 
+          href={ctaHref} 
+          class="btn bg-accent hover:bg-accent-hover text-white px-10 py-4 text-base font-semibold transition-premium rounded-xl inline-block tracking-tight shadow-premium hover:shadow-premium-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
+        >
+          {ctaText}
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll indicator (opcional) -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+    <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
   </div>
 </section>
 
+<style>
+  /* Pausar animação se prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .video-bg {
+      display: none !important;
+    }
+    
+    section {
+      background: linear-gradient(135deg, #1a2b3c 0%, #0a0e14 100%);
+    }
+    
+    .animate-bounce {
+      animation: none;
+    }
+  }
+  
+  /* Estilização do vídeo */
+  #hero-video {
+    z-index: 0;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    background: #000;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Garantir que conteúdo fique acima do vídeo */
+  .container {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Fallback se vídeo não carregar */
+  section {
+    background: #000;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    function initVideo() {
+      const video = document.getElementById('hero-video');
+      
+      if (!video) {
+        console.error('Vídeo não encontrado');
+        setTimeout(initVideo, 100);
+        return;
+      }
+      
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        video.style.display = 'none';
+        return;
+      }
+      
+      // Configurações obrigatórias
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.preload = 'auto';
+      
+      // Função para forçar reprodução
+      function forcePlay() {
+        try {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                console.log('✅ Vídeo tocando');
+              })
+              .catch(error => {
+                console.log('⚠️ Erro ao tocar:', error);
+                setTimeout(forcePlay, 500);
+              });
+          }
+        } catch (error) {
+          console.log('⚠️ Erro:', error);
+          setTimeout(forcePlay, 500);
+        }
+      }
+      
+      // Event listeners
+      video.addEventListener('loadedmetadata', function() {
+        console.log('📹 Metadados carregados');
+        forcePlay();
+      }, { once: true });
+      
+      video.addEventListener('loadeddata', function() {
+        console.log('📹 Dados carregados');
+        forcePlay();
+      }, { once: true });
+      
+      video.addEventListener('canplay', function() {
+        console.log('📹 Pode tocar');
+        forcePlay();
+      }, { once: true });
+      
+      video.addEventListener('canplaythrough', function() {
+        console.log('📹 Pode tocar até o fim');
+        forcePlay();
+      }, { once: true });
+      
+      video.addEventListener('pause', function() {
+        console.log('⏸️ Vídeo pausado, retomando...');
+        setTimeout(forcePlay, 100);
+      });
+      
+      video.addEventListener('ended', function() {
+        console.log('🔁 Vídeo terminou, reiniciando...');
+        video.currentTime = 0;
+        forcePlay();
+      });
+      
+      video.addEventListener('error', function() {
+        console.error('❌ Erro no vídeo:', video.error);
+        console.error('Código:', video.error ? video.error.code : 'desconhecido');
+      });
+      
+      // Tentar reproduzir imediatamente e periodicamente
+      setTimeout(forcePlay, 200);
+      setTimeout(forcePlay, 1000);
+      
+      // Monitoramento constante
+      const monitorInterval = setInterval(function() {
+        if (video.paused || video.ended) {
+          console.log('🔄 Forçando reprodução...');
+          if (video.ended) {
+            video.currentTime = 0;
+          }
+          forcePlay();
+        }
+      }, 500);
+      
+      // Limpar ao sair
+      window.addEventListener('beforeunload', function() {
+        clearInterval(monitorInterval);
+      });
+    }
+    
+    // Inicializar quando o DOM estiver pronto
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initVideo);
+    } else {
+      initVideo();
+    }
+  })();
+</script>

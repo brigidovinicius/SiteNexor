@@ -1,5 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" fill="#3B82F6"/>
-  <text x="50" y="70" font-size="60" fill="white" text-anchor="middle" font-family="Arial">N</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="silverMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e5e5e5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a3a3a3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#525252;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8c66;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e55a28;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background suave -->
+  <rect width="100" height="100" fill="#fafafa" rx="12"/>
+  
+  <!-- Logo simplificado: N + X laranja + Swoosh azul -->
+  <g transform="translate(18, 28) scale(0.5)">
+    <!-- N -->
+    <text x="0" y="50" font-family="Inter, sans-serif" font-size="60" font-weight="700" fill="url(#silverMetallic)">N</text>
+    
+    <!-- X com diagonal laranja -->
+    <g>
+      <text x="50" y="50" font-family="Inter, sans-serif" font-size="60" font-weight="700" fill="url(#silverMetallic)" opacity="0.7">X</text>
+      <path d="M 78 20 L 68 45 L 88 45 L 96 33 L 102 45 L 118 45 L 102 20 Z" fill="url(#orangeMetallic)" filter="url(#glow)"/>
+    </g>
+    
+    <!-- Swoosh azul -->
+    <path d="M 105 15 L 98 22 L 115 39 L 135 15 L 130 10 L 105 10 Z" fill="url(#blueMetallic)" filter="url(#glow)" opacity="0.9"/>
+  </g>
 </svg>
-

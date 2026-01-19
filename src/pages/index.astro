@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import Checklist from '../components/Checklist.astro';
 import CTASection from '../components/CTASection.astro';
@@ -11,22 +12,30 @@ import QuoteBand from '../components/QuoteBand.astro';
   title="Início"
   description="Execução civil industrial com responsabilidade total, do planejamento à entrega. Soluções técnicas completas para ambientes de alta exigência operacional."
 >
-  <PageHeader
-    title="NEXOR Industrial"
-    lead="Execução civil industrial com responsabilidade total, do planejamento à entrega."
-    description="Atuamos em obras civis industriais no modelo chave na mão, entregando soluções técnicas completas para ambientes de alta exigência operacional, com foco em segurança, prazo e qualidade."
+  <!-- Hero com vídeo -->
+  <Hero
+    title="Execução civil industrial com responsabilidade total"
+    subtitle="NEXOR Industrial"
+    description="Soluções técnicas completas para ambientes de alta exigência operacional, com foco em segurança, prazo e qualidade."
+    videoSrc="/videos/hero-video.mov"
+    videoPoster="/images/hero-poster.jpg"
+    ctaText="Solicitar Orçamento"
+    ctaHref="/contato"
   />
 
   <!-- Quem Somos (Resumo) -->
-  <section class="py-20 bg-white">
+  <section class="section bg-surface border-b border-border">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto" data-reveal="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-6">Quem Somos</h2>
-        <div class="space-y-4 text-lg text-zinc-700 leading-relaxed">
-          <p>
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          title="Quem Somos"
+          lead="Parceira técnica de indústrias que exigem alto padrão de engenharia, organização de obra e previsibilidade de entrega."
+        />
+        <div class="space-y-6 text-lg text-text-secondary leading-[1.7] tracking-[-0.01em]">
+          <p data-reveal="fade-up">
             A NEXOR Industrial é uma empresa especializada em execução civil industrial, atuando como parceira técnica de indústrias que exigem alto padrão de engenharia, organização de obra e previsibilidade de entrega.
           </p>
-          <p>
+          <p data-reveal="fade-up">
             Assumimos a gestão completa do projeto, reduzindo riscos, interfaces e retrabalhos, com um único responsável por toda a execução.
           </p>
         </div>
@@ -35,12 +44,13 @@ import QuoteBand from '../components/QuoteBand.astro';
   </section>
 
   <!-- Nossas Soluções -->
-  <section class="py-20 bg-zinc-50">
+  <section class="section bg-bg border-b border-border">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12 text-center" data-reveal="fade-up">
-        Soluções civis para operações industriais críticas
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto" data-reveal-stagger>
+      <SectionHeader
+        title="Soluções civis para operações industriais críticas"
+        centered={true}
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto" data-reveal-stagger>
         <ServiceCard
           title="Execução civil industrial chave na mão"
           href="/solucoes/chave-na-mao"
@@ -62,12 +72,13 @@ import QuoteBand from '../components/QuoteBand.astro';
   </section>
 
   <!-- Diferenciais -->
-  <section class="py-20 bg-white">
+  <section class="section bg-surface border-b border-border">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12" data-reveal="fade-up">
-          Diferenciais
-        </h2>
+        <SectionHeader
+          title="Diferenciais"
+          lead="O que nos torna parceiros estratégicos confiáveis"
+        />
         <Checklist
           items={[
             "Gestão técnica integrada",
@@ -92,21 +103,23 @@ import QuoteBand from '../components/QuoteBand.astro';
   />
 
   <!-- Projetos Slider (Placeholder) -->
-  <section class="py-20 bg-zinc-50">
+  <section class="section bg-bg border-b border-border">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-12 text-center" data-reveal="fade-up">
-        Projetos
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" data-reveal-stagger>
+      <SectionHeader
+        title="Projetos"
+        lead="Realizações que demonstram nossa capacidade técnica e comprometimento"
+        centered={true}
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" data-reveal-stagger>
         {[1, 2, 3, 4, 5].map((i) => (
-          <div class="border border-zinc-200 rounded-lg overflow-hidden bg-white" data-reveal="fade-up">
-            <div class="h-64 bg-zinc-200 flex items-center justify-center">
-              <p class="text-zinc-500">Imagem placeholder</p>
+          <div class="card border-border overflow-hidden" data-reveal="fade-up">
+            <div class="h-64 bg-bg flex items-center justify-center">
+              <p class="text-text-subtle text-sm">Imagem placeholder</p>
             </div>
-            <div class="p-6">
-              <h3 class="font-bold text-zinc-900 mb-2">Projeto Industrial</h3>
-              <p class="text-zinc-600 text-sm mb-1">Local: —</p>
-              <p class="text-zinc-600 text-sm">Categoria: Obra civil</p>
+            <div class="p-8">
+              <h3 class="font-semibold text-brand mb-3 tracking-tight text-lg">Projeto Industrial</h3>
+              <p class="text-text-muted text-sm mb-1">Local: —</p>
+              <p class="text-text-muted text-sm">Categoria: Obra civil</p>
             </div>
           </div>
         ))}

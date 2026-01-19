@@ -1,21 +1,56 @@
 ---
 import { siteConfig } from '../lib/site/config';
+
+// Array com TODOS os IDs dos vídeos do canal do YouTube
+// Para obter todos os vídeos: vá ao canal no YouTube e copie os IDs de cada vídeo
+// Ou forneça o Channel ID para buscar automaticamente (requer configuração adicional)
+const youtubeVideos = [
+  'MDlCqHqVNSc',
+  // Adicione aqui todos os IDs dos outros vídeos do canal
+  // Exemplo: 'VIDEO_ID_2', 'VIDEO_ID_3', 'VIDEO_ID_4', etc.
+];
+
+// Se você tiver o Channel ID do canal, podemos configurar para buscar todos automaticamente
+// const youtubeChannelId = 'SEU_CHANNEL_ID_AQUI';
 ---
 
-<footer class="bg-zinc-900 text-zinc-300 py-16">
+<footer class="bg-brand text-white/95 py-section-lg border-t border-white/8">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <!-- Vídeos do YouTube -->
+    {youtubeVideos.length > 0 && (
+      <div class="mb-16" data-reveal="fade-up">
+        <h3 class="text-white font-semibold text-base mb-6 tracking-tight">Assista agora...</h3>
+        
+        <!-- Grid com TODOS os vídeos do canal -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {youtubeVideos.map((videoId) => (
+            <div class="aspect-video rounded-lg overflow-hidden">
+              <iframe 
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title={`Vídeo do Canal - ${videoId}`}
+                class="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
       <!-- Contato -->
       <div data-reveal="fade-up">
-        <h3 class="text-white font-bold text-lg mb-4">Contato</h3>
-        <ul class="space-y-2">
+        <h3 class="text-white font-semibold text-base mb-6 tracking-tight">Contato</h3>
+        <ul class="space-y-3 text-sm list-none">
           <li>
-            <a href={`mailto:${siteConfig.email}`} class="hover:text-white transition-colors">
+            <a href={`mailto:${siteConfig.email}`} class="hover:text-accent transition-premium text-white/80 no-underline inline-flex items-center gap-2">
               {siteConfig.email}
             </a>
           </li>
           <li>
-            <a href={siteConfig.whatsapp} class="hover:text-white transition-colors">
+            <a href={siteConfig.whatsapp} class="hover:text-accent transition-premium text-white/80 no-underline inline-flex items-center gap-2">
               WhatsApp (em breve)
             </a>
           </li>
@@ -24,8 +59,8 @@ import { siteConfig } from '../lib/site/config';
       
       <!-- Áreas de Atuação -->
       <div data-reveal="fade-up" data-reveal-delay="100">
-        <h3 class="text-white font-bold text-lg mb-4">Áreas de Atuação</h3>
-        <ul class="space-y-2">
+        <h3 class="text-white font-semibold text-base mb-6 tracking-tight">Áreas de Atuação</h3>
+        <ul class="space-y-3 text-sm text-white/80 list-none">
           <li>Regional</li>
           <li>Nacional</li>
         </ul>
@@ -33,18 +68,18 @@ import { siteConfig } from '../lib/site/config';
       
       <!-- Links Rápidos -->
       <div data-reveal="fade-up" data-reveal-delay="200">
-        <h3 class="text-white font-bold text-lg mb-4">Links Rápidos</h3>
-        <ul class="space-y-2">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><a href="/quem-somos" class="hover:text-white transition-colors">Quem Somos</a></li>
-          <li><a href="/seguranca-e-qualidade" class="hover:text-white transition-colors">Segurança e Qualidade</a></li>
-          <li><a href="/contato" class="hover:text-white transition-colors">Contato</a></li>
+        <h3 class="text-white font-semibold text-base mb-6 tracking-tight">Links Rápidos</h3>
+        <ul class="space-y-3 text-sm list-none">
+          <li><a href="/" class="hover:text-accent transition-premium text-white/80 no-underline">Home</a></li>
+          <li><a href="/quem-somos" class="hover:text-accent transition-premium text-white/80 no-underline">Quem Somos</a></li>
+          <li><a href="/seguranca-e-qualidade" class="hover:text-accent transition-premium text-white/80 no-underline">Segurança e Qualidade</a></li>
+          <li><a href="/contato" class="hover:text-accent transition-premium text-white/80 no-underline">Contato</a></li>
         </ul>
       </div>
     </div>
     
-    <div class="border-t border-zinc-800 pt-8 text-center" data-reveal="fade-up">
-      <p class="text-zinc-500">
+    <div class="border-t border-white/10 pt-10 text-center" data-reveal="fade-up">
+      <p class="text-white/60 text-xs tracking-tight">
         &copy; {new Date().getFullYear()} {siteConfig.siteName}. Todos os direitos reservados.
       </p>
     </div>

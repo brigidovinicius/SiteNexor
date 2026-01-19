@@ -27,13 +27,13 @@ export function initReveal() {
     
     switch (revealType) {
       case 'fade-up':
-        fromProps.y = 50;
+        fromProps.y = 24;
         break;
       case 'fade-in':
         // Apenas fade, sem movimento Y
         break;
       default:
-        fromProps.y = 50;
+        fromProps.y = 20;
     }
 
     gsap.fromTo(
@@ -42,12 +42,12 @@ export function initReveal() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.6,
         delay: delay / 1000,
-        ease: 'power3.out',
+        ease: 'power1.out',
         scrollTrigger: {
           trigger: element,
-          start: 'top 85%',
+          start: 'top 90%',
           toggleActions: 'play none none reverse',
         },
       }
@@ -61,16 +61,16 @@ export function initReveal() {
     if (children.length > 0) {
       gsap.fromTo(
         children,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'power3.out',
+          duration: 0.6,
+          stagger: 0.06,
+          ease: 'power1.out',
           scrollTrigger: {
             trigger: container,
-            start: 'top 85%',
+            start: 'top 90%',
             toggleActions: 'play none none reverse',
           },
         }
