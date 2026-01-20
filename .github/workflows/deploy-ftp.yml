@@ -7,6 +7,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
     steps:
       - uses: actions/checkout@v4
       
@@ -21,6 +23,14 @@ jobs:
       
       - name: Build
         run: npm run build
+        
+      - name: Check build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ Build failed - dist directory not found"
+            exit 1
+          fi
+          echo "✅ Build successful"
       
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -30,4 +40,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ${{ secrets.FTP_REMOTE_PATH }}
+          dangerous-clean-slate: false
+        continue-on-error: false
 
