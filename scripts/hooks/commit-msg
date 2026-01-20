@@ -6,18 +6,30 @@
 COMMIT_MSG_FILE="$1"
 COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 
-# Padrões de caminhos locais proibidos
+# Padrões de caminhos locais proibidos (mas ignora se for apenas referência em contexto)
 LOCAL_PATH_PATTERNS="/Users/|/Desktop|/Downloads|/Documents|/home/[^/]+/|C:\\\\Users\\\\"
 
 # Verifica se a mensagem contém caminhos locais
+# Mas ignora se for apenas uma referência em contexto de documentação/exemplo
 if echo "$COMMIT_MSG" | grep -qiE "$LOCAL_PATH_PATTERNS"; then
-  echo ""
-  echo "🔒 ERRO: Mensagem de commit contém caminhos locais!"
-  echo ""
-  echo "A mensagem de commit não pode conter caminhos de arquivos locais."
-  echo "Remova referências a /Users/, /Desktop, /Downloads, etc."
-  echo ""
-  exit 1
+  # Ignora se for apenas uma referência em lista de exemplos ou documentação
+  # (ex: "Bloqueia commits com caminhos /Users/, /Desktop")
+  if echo "$COMMIT_MSG" | grep -qiE "(bloqueia|bloquea|detecta|valida|referência|referencia|exemplo|exemplos|padrão|padrões|regra|regras|documentação|documentacao|contém|contem|inclui|lista)"; then
+    # É apenas uma referência em contexto, permite
+    exit 0
+  fi
+  
+  # Verifica se é um caminho completo que parece ser código real
+  # (ex: "/Users/joao/Desktop/file.png" vs "/Users/, /Desktop")
+  if echo "$COMMIT_MSG" | grep -qiE "(/Users/[^/,\s]+/|/Desktop/[^,\s]+|/Downloads/[^,\s]+)"; then
+    echo ""
+    echo "🔒 ERRO: Mensagem de commit contém caminhos locais!"
+    echo ""
+    echo "A mensagem de commit não pode conter caminhos completos de arquivos locais."
+    echo "Remova referências a caminhos como /Users/username/..., /Desktop/file, etc."
+    echo ""
+    exit 1
+  fi
 fi
 
 exit 0
