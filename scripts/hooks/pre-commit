@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# 🔒 SECURITY HOOK — Pre-commit validation
+# Bloqueia commits que contenham caminhos de arquivos locais
+
+# Obtém arquivos staged
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Se não houver arquivos staged, permite o commit
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
+
+# Executa validação de caminhos locais
+node scripts/check-local-paths.js --staged
+
+# Se o script retornar erro, bloqueia o commit
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "🚫 Commit bloqueado por violação de segurança."
+  echo "   Remova os caminhos locais antes de commitar."
+  exit 1
+fi
+
+exit 0
+

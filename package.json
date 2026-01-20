@@ -7,7 +7,11 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "security:check": "node scripts/check-local-paths.js --staged",
+    "security:check-all": "node scripts/check-local-paths.js $(git ls-files)",
+    "security:install-hooks": "bash scripts/install-hooks.sh",
+    "postinstall": "npm run security:install-hooks"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.1",

@@ -1,0 +1,37 @@
+{
+  "description": "Configuração para validação de segurança de caminhos locais",
+  "version": "1.0.0",
+  "rules": {
+    "blockedPatterns": [
+      "/Users/",
+      "/Desktop",
+      "/Downloads",
+      "/Documents",
+      "/home/",
+      "C:\\Users\\",
+      "C:\\Desktop\\",
+      "C:\\Downloads\\"
+    ],
+    "allowedDirectories": [
+      "public",
+      "assets",
+      "storage",
+      "src"
+    ],
+    "ignoredPatterns": [
+      "node_modules",
+      ".git",
+      "dist",
+      ".next",
+      ".astro",
+      "build",
+      "coverage"
+    ]
+  },
+  "notes": [
+    "Este arquivo é apenas para referência.",
+    "As regras reais estão implementadas em scripts/check-local-paths.js",
+    "Consulte docs/SECURITY-RULES.md para documentação completa"
+  ]
+}
+
